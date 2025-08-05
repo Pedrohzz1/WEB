@@ -35,7 +35,6 @@ nav a {
   font-size: 0.9rem;
 }
 
-/* Hero */
 .hero {
   background: url('img/banner.png') no-repeat center;
   background-size: cover;
@@ -44,6 +43,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
 }
 
 .hero-content {
@@ -107,11 +107,24 @@ nav a {
   margin-bottom: 30px;
 }
 
-.receitas-grid {
+.receitas-grid {  
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
+  align-items: stretch;
+}
+
+/* Link do card inteiro */
+.receita-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.receita-link:hover {
+  transform: scale(1.03);
 }
 
 .receita {
@@ -121,25 +134,48 @@ nav a {
   padding: 15px;
   width: 260px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.receita img {
+.receita h3 {
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.receita img.alimento {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
+  height: 180px;
+  border-radius: 8px;
   object-fit: cover;
 }
 
-.user-icon {
-  width: 70px;
-  height: 70px;
+.user-icon-wrapper {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid #f7941d;
   padding: 2px;
   background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.user-icon-wrapper img.user-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  padding: 0;
 }
 
 footer {
@@ -149,6 +185,38 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+.logo-footer {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .logo-footer img {
   width: 60px;
+}
+
+@media (max-width: 768px) {
+  .cards, .receitas-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card, .receita-link {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
 }
